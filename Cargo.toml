@@ -1,0 +1,2 @@
+[workspace]
+members = ["path-lib","executable-crate"]
