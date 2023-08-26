@@ -32,8 +32,8 @@ FROM base AS builder
 RUN apk add unixodbc-dev
 COPY --from=planner /source/app/recipe.json recipe.json
 # Build dependencies - this is the caching Docker layer!
-COPY . .
 RUN cargo chef cook --release --recipe-path recipe.json
+COPY . .
 # Build application
 WORKDIR /source/app
 RUN cargo b --release --target-dir=/rust
